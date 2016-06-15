@@ -3,6 +3,7 @@ package com.codepath.simepletodo;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 
@@ -26,11 +27,13 @@ public class EditItemActivity extends AppCompatActivity {
         // Prepare data intent
         Intent data = new Intent();
         // Pass relevant data back as a result
-        data.putExtra("item", etName.getText().toString());
+        data.putExtra("change", etName.getText().toString());
         data.putExtra("pos", pos); // ints work too
         // Activity finished ok, return the data
         setResult(RESULT_OK, data); // set result code and bundle data for response
         finish(); // closes the activity, pass data to parent
+
+
     }
 
 }

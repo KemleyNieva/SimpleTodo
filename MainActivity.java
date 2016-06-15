@@ -3,6 +3,7 @@ package com.codepath.simepletodo;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -98,17 +99,29 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    /*@Override
+    private final int REQUEST_CODE = 20;
+
+    public void onClick(View view){
+        Intent i = new Intent(MainActivity.this, EditItemActivity.class);
+        i.putExtra("mode",2);
+        startActivityForResult(i, REQUEST_CODE);
+
+
+
+    }
+    @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         // REQUEST_CODE is defined above
-
+        if(resultCode == RESULT_OK && requestCode == REQUEST_CODE) {
             // Extract name value from result extras
-            int pos = data.getExtras().getInt("pos",0);
-            String item = data.getExtras().getString("item");
-            items.get(pos)= item;
-            // Toast the name to display temporarily on screen
-            Toast.makeText(this, , Toast.LENGTH_SHORT).show();
+            int pos = data.getExtras().getInt("pos", 0);
+            String item = data.getExtras().getString("change");
 
-    }*/
+            //items.set(pos,item);
+
+            // Toast the name to display temporarily on screen
+            Toast.makeText(this, item, Toast.LENGTH_SHORT).show();
+        }
+    }
 
 }
